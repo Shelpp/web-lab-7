@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Задание 7 — Галерея</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="gallery.js" defer></script>
+</head>
+
+<body>
+
+  <header id="site-header">
+    <div class="container">
+      <h1 class="site-title">Лабораторная работа 7</h1>
+    </div>
+  </header>
+
+  <main id="content" class="container">
+    <section id="gallery-section">
+      <h2>Галерея</h2>
+
+      <div id="gallery" class="gallery">
+        <button type="button" class="arrow arrow-prev" id="gallery-prev" aria-label="Назад">
+          <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true" focusable="false"><path d="M15 5L8 12L15 19" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+
+        <div class="gallery-viewport">
+          <ul class="gallery-track" id="gallery-track">
+          <li class="slide">
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCA2MDAgNDAwJz48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9J2cnIHgxPScwJyB5MT0nMCcgeDI9JzEnIHkyPScxJz48c3RvcCBvZmZzZXQ9JzAnIHN0b3AtY29sb3I9JyMwYTE2MmMnLz48c3RvcCBvZmZzZXQ9JzEnIHN0b3AtY29sb3I9JyMxODQwOGEnLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0nNjAwJyBoZWlnaHQ9JzQwMCcgZmlsbD0ndXJsKCNnKScvPjxwb2x5Z29uIHBvaW50cz0nMCw0MDAgMTUwLDIzMCAyNjAsMzIwIDM4MCwxNTAgNjAwLDQwMCcgZmlsbD0nIzVhYWFmZicgZmlsbC1vcGFjaXR5PScuMzUnLz48cG9seWdvbiBwb2ludHM9JzIwMCw0MDAgNDAwLDIwMCA1MjAsMzAwIDYwMCwyNjAgNjAwLDQwMCcgZmlsbD0nIzhlYzVmZicgZmlsbC1vcGFjaXR5PScuMycvPjx0ZXh0IHg9JzI4JyB5PSc2NCcgZm9udC1mYW1pbHk9J0FyaWFsJyBmb250LXNpemU9JzQ0JyBmb250LXdlaWdodD0nYm9sZCcgZmlsbD0nI2RiZWJmZic+MTwvdGV4dD48L3N2Zz4=" alt="Изображение 1" width="600" height="400" draggable="false">
+          </li>
+          <li class="slide">
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCA2MDAgNDAwJz48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9J2cnIHgxPScwJyB5MT0nMCcgeDI9JzEnIHkyPScxJz48c3RvcCBvZmZzZXQ9JzAnIHN0b3AtY29sb3I9JyMwYzFlM2EnLz48c3RvcCBvZmZzZXQ9JzEnIHN0b3AtY29sb3I9JyMxZDVmYTgnLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0nNjAwJyBoZWlnaHQ9JzQwMCcgZmlsbD0ndXJsKCNnKScvPjxjaXJjbGUgY3g9JzMwMCcgY3k9JzIwMCcgcj0nMTEwJyBmaWxsPSdub25lJyBzdHJva2U9JyM2Y2IwZmYnIHN0cm9rZS13aWR0aD0nMTAnLz48Y2lyY2xlIGN4PSczMDAnIGN5PScyMDAnIHI9JzYwJyBmaWxsPScjNmNiMGZmJyBmaWxsLW9wYWNpdHk9Jy4zNScvPjx0ZXh0IHg9JzI4JyB5PSc2NCcgZm9udC1mYW1pbHk9J0FyaWFsJyBmb250LXNpemU9JzQ0JyBmb250LXdlaWdodD0nYm9sZCcgZmlsbD0nI2RiZWJmZic+MjwvdGV4dD48L3N2Zz4=" alt="Изображение 2" width="600" height="400" draggable="false">
+          </li>
+          <li class="slide">
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCA2MDAgNDAwJz48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9J2cnIHgxPScwJyB5MT0nMCcgeDI9JzEnIHkyPScxJz48c3RvcCBvZmZzZXQ9JzAnIHN0b3AtY29sb3I9JyMxMDFjMzQnLz48c3RvcCBvZmZzZXQ9JzEnIHN0b3AtY29sb3I9JyMyNzUwOGYnLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0nNjAwJyBoZWlnaHQ9JzQwMCcgZmlsbD0ndXJsKCNnKScvPjxyZWN0IHg9JzEyMCcgeT0nMTEwJyB3aWR0aD0nMzYwJyBoZWlnaHQ9JzE4MCcgcng9JzEwJyBmaWxsPSdub25lJyBzdHJva2U9JyM2Y2IwZmYnIHN0cm9rZS13aWR0aD0nMTAnLz48cGF0aCBkPSdNMTIwIDI5MEwyMjAgMjAwTDMwMCAyNjBMMzgwIDE3MEw0ODAgMjkwWicgZmlsbD0nIzZjYjBmZicgZmlsbC1vcGFjaXR5PScuMzUnLz48dGV4dCB4PScyOCcgeT0nNjQnIGZvbnQtZmFtaWx5PSdBcmlhbCcgZm9udC1zaXplPSc0NCcgZm9udC13ZWlnaHQ9J2JvbGQnIGZpbGw9JyNkYmViZmYnPjM8L3RleHQ+PC9zdmc+" alt="Изображение 3" width="600" height="400" draggable="false">
+          </li>
+          <li class="slide">
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCA2MDAgNDAwJz48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9J2cnIHgxPScwJyB5MT0nMCcgeDI9JzEnIHkyPScxJz48c3RvcCBvZmZzZXQ9JzAnIHN0b3AtY29sb3I9JyMwYTFhMzAnLz48c3RvcCBvZmZzZXQ9JzEnIHN0b3AtY29sb3I9JyMxNDYxOGEnLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0nNjAwJyBoZWlnaHQ9JzQwMCcgZmlsbD0ndXJsKCNnKScvPjxwb2x5Z29uIHBvaW50cz0nMzAwLDcwIDQ3MCwxNjAgNDcwLDI2MCAzMDAsMzUwIDEzMCwyNjAgMTMwLDE2MCcgZmlsbD0nIzZjYjBmZicgZmlsbC1vcGFjaXR5PScuMjUnIHN0cm9rZT0nIzZjYjBmZicgc3Ryb2tlLXdpZHRoPScxMCcvPjx0ZXh0IHg9JzI4JyB5PSc2NCcgZm9udC1mYW1pbHk9J0FyaWFsJyBmb250LXNpemU9JzQ0JyBmb250LXdlaWdodD0nYm9sZCcgZmlsbD0nI2RiZWJmZic+NDwvdGV4dD48L3N2Zz4=" alt="Изображение 4" width="600" height="400" draggable="false">
+          </li>
+          <li class="slide">
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCA2MDAgNDAwJz48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9J2cnIHgxPScwJyB5MT0nMCcgeDI9JzEnIHkyPScxJz48c3RvcCBvZmZzZXQ9JzAnIHN0b3AtY29sb3I9JyMxMjIwM2YnLz48c3RvcCBvZmZzZXQ9JzEnIHN0b3AtY29sb3I9JyMyZjRmYTAnLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0nNjAwJyBoZWlnaHQ9JzQwMCcgZmlsbD0ndXJsKCNnKScvPjxwYXRoIGQ9J002MCAzMDBMMTgwIDE4MEwyNjAgMjYwTDM2MCAxMjBMNTQwIDMwMFonIGZpbGw9JyM1YWFhZmYnIGZpbGwtb3BhY2l0eT0nLjQnLz48Y2lyY2xlIGN4PSc0NTAnIGN5PScxMTAnIHI9JzQwJyBmaWxsPScjZGJlYmZmJyBmaWxsLW9wYWNpdHk9Jy44Jy8+PHRleHQgeD0nMjgnIHk9JzY0JyBmb250LWZhbWlseT0nQXJpYWwnIGZvbnQtc2l6ZT0nNDQnIGZvbnQtd2VpZ2h0PSdib2xkJyBmaWxsPScjZGJlYmZmJz41PC90ZXh0Pjwvc3ZnPg==" alt="Изображение 5" width="600" height="400" draggable="false">
+          </li>
+          <li class="slide">
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCA2MDAgNDAwJz48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9J2cnIHgxPScwJyB5MT0nMCcgeDI9JzEnIHkyPScxJz48c3RvcCBvZmZzZXQ9JzAnIHN0b3AtY29sb3I9JyMwYjFkMzYnLz48c3RvcCBvZmZzZXQ9JzEnIHN0b3AtY29sb3I9JyMxZjZmOWMnLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0nNjAwJyBoZWlnaHQ9JzQwMCcgZmlsbD0ndXJsKCNnKScvPjxnIGZpbGw9J25vbmUnIHN0cm9rZT0nIzZjYjBmZicgc3Ryb2tlLXdpZHRoPSc5Jz48Y2lyY2xlIGN4PSczMDAnIGN5PScyMDAnIHI9JzQwJy8+PGNpcmNsZSBjeD0nMzAwJyBjeT0nMjAwJyByPSc4MCcvPjxjaXJjbGUgY3g9JzMwMCcgY3k9JzIwMCcgcj0nMTIwJy8+PC9nPjx0ZXh0IHg9JzI4JyB5PSc2NCcgZm9udC1mYW1pbHk9J0FyaWFsJyBmb250LXNpemU9JzQ0JyBmb250LXdlaWdodD0nYm9sZCcgZmlsbD0nI2RiZWJmZic+NjwvdGV4dD48L3N2Zz4=" alt="Изображение 6" width="600" height="400" draggable="false">
+          </li>
+          <li class="slide">
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCA2MDAgNDAwJz48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9J2cnIHgxPScwJyB5MT0nMCcgeDI9JzEnIHkyPScxJz48c3RvcCBvZmZzZXQ9JzAnIHN0b3AtY29sb3I9JyMwZTFhMzAnLz48c3RvcCBvZmZzZXQ9JzEnIHN0b3AtY29sb3I9JyMyYTNmODYnLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0nNjAwJyBoZWlnaHQ9JzQwMCcgZmlsbD0ndXJsKCNnKScvPjxwYXRoIGQ9J005MCAyOTBWMTkwTDIxMCAxMTBMMzAwIDE5MEwzOTAgMTEwTDUxMCAxOTBWMjkwWicgZmlsbD0nIzZjYjBmZicgZmlsbC1vcGFjaXR5PScuMycgc3Ryb2tlPScjNmNiMGZmJyBzdHJva2Utd2lkdGg9JzgnLz48dGV4dCB4PScyOCcgeT0nNjQnIGZvbnQtZmFtaWx5PSdBcmlhbCcgZm9udC1zaXplPSc0NCcgZm9udC13ZWlnaHQ9J2JvbGQnIGZpbGw9JyNkYmViZmYnPjc8L3RleHQ+PC9zdmc+" alt="Изображение 7" width="600" height="400" draggable="false">
+          </li>
+          <li class="slide">
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCA2MDAgNDAwJz48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9J2cnIHgxPScwJyB5MT0nMCcgeDI9JzEnIHkyPScxJz48c3RvcCBvZmZzZXQ9JzAnIHN0b3AtY29sb3I9JyMwYTFjMzMnLz48c3RvcCBvZmZzZXQ9JzEnIHN0b3AtY29sb3I9JyMxYjVhOTYnLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0nNjAwJyBoZWlnaHQ9JzQwMCcgZmlsbD0ndXJsKCNnKScvPjxwb2x5bGluZSBwb2ludHM9JzYwLDMwMCAxNzAsMjIwIDI2MCwyNjAgMzcwLDEzMCA1NDAsMTcwJyBmaWxsPSdub25lJyBzdHJva2U9JyM2Y2IwZmYnIHN0cm9rZS13aWR0aD0nMTAnLz48ZyBmaWxsPScjMGIxNjI2JyBzdHJva2U9JyM2Y2IwZmYnIHN0cm9rZS13aWR0aD0nNic+PGNpcmNsZSBjeD0nMTcwJyBjeT0nMjIwJyByPScxMicvPjxjaXJjbGUgY3g9JzI2MCcgY3k9JzI2MCcgcj0nMTInLz48Y2lyY2xlIGN4PSczNzAnIGN5PScxMzAnIHI9JzEyJy8+PC9nPjx0ZXh0IHg9JzI4JyB5PSc2NCcgZm9udC1mYW1pbHk9J0FyaWFsJyBmb250LXNpemU9JzQ0JyBmb250LXdlaWdodD0nYm9sZCcgZmlsbD0nI2RiZWJmZic+ODwvdGV4dD48L3N2Zz4=" alt="Изображение 8" width="600" height="400" draggable="false">
+          </li>
+          </ul>
+        </div>
+
+        <button type="button" class="arrow arrow-next" id="gallery-next" aria-label="Вперёд">
+          <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true" focusable="false"><path d="M9 5L16 12L9 19" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+
+      <div class="pager" aria-label="Пейджер">
+        <p id="pager-text" class="pager-text" role="status"></p>
+        <div id="pager-dots" class="pager-dots"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer">
+    <div class="container">
+      <p>&copy; Чуприн Артем</p>
+    </div>
+  </footer>
+
+</body>
+
+</html>
